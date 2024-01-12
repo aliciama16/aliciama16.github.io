@@ -17,4 +17,10 @@ h2 {
 body {
     background-color: bisque;
     }
-    
+
+img {
+    border: 5px solid goldenrod;
+    width: 40%;
+    height: 40%;
+    }
+        
