@@ -1,0 +1,15 @@
+h1 {
+    color:purple;
+    font-family:helvetica;
+    }
+    
+h2 {
+    color:brown;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }   
+
+ <div style="text-align:center">
+
+ * {
+    text-align: center;
+}
