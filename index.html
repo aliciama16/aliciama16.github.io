@@ -87,18 +87,17 @@
                 window.requestAnimationFrame(loop);
             }
 
-         async function predict() {
+            async function predict() {
     // Predict can take in an image, video, or canvas HTML element
     const prediction = await model.predict(webcam.canvas);
-    // Find the index of the class with the highest probability
-    const maxIndex = prediction.reduce((maxIndex, prediction, index, predictions) => prediction.probability > predictions[maxIndex].probability ? index : maxIndex, 0);
-    // Extract the class label with the highest probability
-    const classPrediction = prediction[maxIndex].className;
-    // Display the class label
-    labelContainer.innerHTML = classPrediction;
+    for (let i = 0; i < maxPredictions; i++) {
+        // Extract the class label
+        const classPrediction = prediction[i].className;
+        // Display the class label
+        labelContainer.childNodes[i].innerHTML = classPrediction;
     }
 }
-            }
+
                 }
             }
 
