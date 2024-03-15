@@ -65,7 +65,7 @@
                 maxPredictions = model.getTotalClasses();
 
                 const flip = true;
-                webcam = new tmImage.Webcam(200, 200, flip);
+                webcam = new tmImage.Webcam(700, 700, flip);
                 await webcam.setup();
                 await webcam.play();
                 window.requestAnimationFrame(loop);
