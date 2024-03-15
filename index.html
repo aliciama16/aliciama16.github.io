@@ -42,11 +42,7 @@
         <h2>MY FAVORITE MUSIC</h2>
         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6Tumcs4wwNVvEgPM7Cr787?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         <br>
-    <br>
-    <br>
-    <br>
-<br>
-    <h2>My Teachable Machine Project</h2>
+
         <!-- Add div elements for webcam and label -->
         <div id="webcam-container"></div>
         <div id="label-container"></div>
@@ -69,7 +65,7 @@
                 maxPredictions = model.getTotalClasses();
 
                 const flip = true;
-                webcam = new tmImage.Webcam(600, 600, flip);
+                webcam = new tmImage.Webcam(700, 700, flip);
                 await webcam.setup();
                 await webcam.play();
                 window.requestAnimationFrame(loop);
@@ -88,16 +84,11 @@
             }
 
             async function predict() {
-    // Predict can take in an image, video, or canvas HTML element
-    const prediction = await model.predict(webcam.canvas);
-    for (let i = 0; i < maxPredictions; i++) {
-        // Extract the class label
-        const classPrediction = prediction[i].className;
-        // Display the class label
-        labelContainer.childNodes[i].innerHTML = classPrediction;
-    }
-}
-
+                const prediction = await model.predict(webcam.canvas);
+                for (let i = 0; i < maxPredictions; i++) {
+                    const classPrediction =
+                        prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+                    labelContainer.childNodes[i].innerHTML = classPrediction;
                 }
             }
 
