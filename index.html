@@ -85,18 +85,15 @@
                 window.requestAnimationFrame(loop);
             }
 
-           async function predict() {
-    // Predict can take in an image, video, or canvas HTML element
-    const prediction = await model.predict(webcam.canvas);
-    // Find the index of the class with the highest probability
-    const maxIndex = prediction.reduce((maxIndex, prediction, index, predictions) => prediction.probability > predictions[maxIndex].probability ? index : maxIndex, 0);
-    // Extract the class label with the highest probability
-    const classPrediction = prediction[maxIndex].className;
-    // Display the class label
-    labelContainer.innerHTML = classPrediction;
-}
-
-                }
+            async function predict() {
+                // Predict can take in an image, video, or canvas HTML element
+                const prediction = await model.predict(webcam.canvas);
+                // Find the index of the class with the highest probability
+                const maxIndex = prediction.reduce((maxIndex, prediction, index, predictions) => prediction.probability > predictions[maxIndex].probability ? index : maxIndex, 0);
+                // Extract the class label with the highest probability
+                const classPrediction = prediction[maxIndex].className;
+                // Display the class label
+                labelContainer.innerHTML = classPrediction;
             }
 
             // Call the init function when the page is loaded
